@@ -7,7 +7,7 @@ const { Dishes, Cuisines, Restaurants } = require("./data");
  */
 function generateRandomMenuItem(cuisine) {
   const randomMenuItem =
-    Dishes[Math.floor(Math.random() * Dishes[cuisine].length)];
+    Dishes[cuisine][Math.floor(Math.random() * Dishes[cuisine].length)];
   return randomMenuItem;
 }
 
