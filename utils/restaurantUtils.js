@@ -6,8 +6,9 @@ const { Dishes, Cuisines, Restaurants } = require("./data");
  * @returns {*} A random menu item with a name, description, price, and special status.
  */
 function generateRandomMenuItem(cuisine) {
+  const menuItems = Dishes[cuisine];
   const randomMenuItem =
-    Dishes[cuisine][Math.floor(Math.random() * Dishes[cuisine].length)];
+    menuItems[Math.floor(Math.random() * menuItems.length)];
   return randomMenuItem;
 }
 
