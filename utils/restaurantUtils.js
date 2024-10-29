@@ -17,8 +17,8 @@ function generateRandomMenuItem(cuisine) {
  * @returns {*} A random cuisine type.
  */
 function selectRandomCuisine() {
-  const cusines = Cuisines;
-  const randomCuisine = cusines[Math.floor(Math.random() * cusines.length)];
+  const cuisines = Cuisines;
+  const randomCuisine = cuisines[Math.floor(Math.random() * cuisines.length)];
   return randomCuisine;
 }
 
@@ -27,7 +27,15 @@ function selectRandomCuisine() {
  * @returns {*} An object representing the restaurant's menu, including the cuisine type and items.
  */
 function generateMenu() {
-  // Implementation here...
+  const cuisineType = Object.values(Cuisines);
+  const randomCuisine =
+    cuisineType[Math.floor(Math.random() * cuisineType.length)];
+  const menuItems = Dishes[randomCuisine];
+
+  return {
+    cuisine: randomCuisine,
+    items: menuItems,
+  };
 }
 
 /**

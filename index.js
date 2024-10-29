@@ -40,5 +40,4 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 const cuisine = Cuisines[Math.floor(Math.random() * Cuisines.length)];
-console.log(selectRandomCuisine());
-console.log(generateRandomMenuItem(cuisine));
+console.log(generateMenu());
