@@ -30,7 +30,11 @@ function generateMenu() {
   const cuisineType = Object.values(Cuisines);
   const randomCuisine =
     cuisineType[Math.floor(Math.random() * cuisineType.length)];
-  const menuItems = Dishes[randomCuisine];
+  const menuItems = [];
+
+  for (let i = 0; i < 5; i++) {
+    menuItems.push(generateRandomMenuItem(randomCuisine));
+  }
 
   return {
     cuisine: randomCuisine,
