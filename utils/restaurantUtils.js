@@ -32,7 +32,7 @@ function generateMenu() {
     cuisineType[Math.floor(Math.random() * cuisineType.length)];
   const menuItems = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     menuItems.push(generateRandomMenuItem(randomCuisine));
   }
 
