@@ -19,10 +19,12 @@ app.use(express.static("public"));
  * Renders the homepage that lists cities and restaurant names.
  */
 app.get("/", (request, response) => {
-  const randomMenuItem = generateRandomMenuItem(cuisine);
+  const randomCuisine = selectRandomCuisine();
+  const randomMenuItem = generateRandomMenuItem(randomCuisine);
   response.render("index", {
     restaurants: Restaurants,
     randomMenuItem: randomMenuItem.name + " - " + randomMenuItem.description,
+    randomCuisine: randomCuisine,
   });
 });
 
@@ -34,12 +36,15 @@ app.get("/", (request, response) => {
 app.get("/restaurant", (request, response) => {
   const restaurantId = request.query.restaurantId;
   console.log(`restaurantId: ${restaurantId}`);
+  const menu = generateMenu(Cuisines, 5, 10);
   response.render("restaurant", {
     restaurant: restaurantData[restaurantId],
+    menu: menu,
   });
 });
 
 //Add any other required routes here
+app.get("/alerts", (request, response) => {});
 
 const port = 3000;
 app.listen(port, () => {
