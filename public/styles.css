@@ -1,37 +1,112 @@
 /* Base styling, feel free to remove or alter */
 
 body {
-    background: linear-gradient(90deg, rgba(93,142,251,1) 0%, rgba(93,142,251,1) 50%, rgba(0,212,255,1) 100%);
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    color: #F6F6F6;
+  background: #f7f4f0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Georgia", serif;
+  color: #333;
 }
 
 .main-content {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    align-items: center;
-    flex-direction: column;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .main-content h1 {
-    font-size: 50px;
+  font-size: 48px;
+  font-family: "Playfair Display", serif;
+  color: #8b4513;
+  margin-bottom: 20px;
+}
+
+.main-content h2 {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.main-content p,
+.main-content ul {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ul li strong {
+  font-size: 20px;
+  color: #8b4513;
+}
+
+ul li em {
+  font-size: 16px;
+  color: #d2691e;
 }
 
 .main-content form {
-    font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.main-content form label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.main-content form select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 .main-content form button {
-    border: none;
-    background: #F6F6F6;
-    mix-blend-mode: screen;
-    padding: 5px;
-    border-radius: 5px;
-    margin-left: 5px;
-    cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #8b4513;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.main-content form button:hover {
+  background-color: #a0522d;
+}
+
+a {
+  text-decoration: none;
+  color: #8b4513;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #a0522d;
 }
