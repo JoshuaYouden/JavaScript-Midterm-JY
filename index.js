@@ -41,9 +41,11 @@ app.get("/", (request, response) => {
 app.get("/restaurant", (request, response) => {
   const restaurantId = request.query.restaurantId;
   console.log(`restaurantId: ${restaurantId}`);
-  const menu = generateMenu(Cuisines, 5, 10);
+  const restaurant = Restaurants.find((r) => r.id === restaurantId);
+  const menu = generateMenu(restaurant.cuisine, 5, 10);
   response.render("restaurant", {
     restaurant: restaurantData[restaurantId],
+    restaurantName: restaurant,
     menu: menu,
   });
 });

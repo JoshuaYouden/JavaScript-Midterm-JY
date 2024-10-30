@@ -34,18 +34,20 @@ function selectRandomCuisine() {
  * Generates a menu for a restaurant, including a random cuisine type and a list of menu items.
  * @returns {*} An object representing the restaurant's menu, including the cuisine type and items.
  */
-function generateMenu() {
-  const cuisineType = Object.values(Cuisines);
-  const randomCuisine =
-    cuisineType[Math.floor(Math.random() * cuisineType.length)];
+function generateMenu(cuisine, minItems = 5, maxItems = 10) {
+  const dishes = Dishes[cuisine] || [];
+  const randomCuisine = Math.min(
+    dishes.length,
+    Math.floor(Math.random() * (maxItems - minItems + 1)) + minItems
+  );
   const menuItems = [];
 
-  for (let i = 0; i < 10; i++) {
-    menuItems.push(generateRandomMenuItem(randomCuisine));
+  for (let i = 0; i < randomCuisine; i++) {
+    menuItems.push(dishes[Math.floor(Math.random() * dishes.length)]);
   }
 
   return {
-    cuisine: randomCuisine,
+    cuisine: cuisine,
     items: menuItems,
   };
 }

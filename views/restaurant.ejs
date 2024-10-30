@@ -6,7 +6,17 @@
   </head>
   <body>
     <main class="main-content">
-      <h1>Restaurant Menus</h1>
+      <h1><%= restaurantName.name %> Menu</h1>
+      <h2>Cuisine Type: <%= menu.cuisine %></h2>
+      <ul>
+        <% menu.items.forEach((item) => { %>
+        <li>
+          <p><%= item.name %> (<%= item.description %>) - $<%= item.price %></p>
+          <% if (item.special) { %> <em>(Daily Special!)</em> <% } %>
+        </li>
+        <% }) %>
+      </ul>
+      <a href="/">Back to Home</a>
     </main>
   </body>
 </html>
