@@ -9,7 +9,15 @@ function generateRandomMenuItem(cuisine) {
   const menuItems = Dishes[cuisine];
   const randomMenuItem =
     menuItems[Math.floor(Math.random() * menuItems.length)];
-  return randomMenuItem;
+  return {
+    name: randomMenuItem.name,
+    description: randomMenuItem.description,
+    price: randomMenuItem.price || (Math.random() * 20 + 5).toFixed(2),
+    special:
+      typeof randomMenuItem.special === "boolean"
+        ? randomMenuItem.special
+        : Math.random() < 0.5,
+  };
 }
 
 /**

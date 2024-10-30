@@ -18,9 +18,14 @@
         <button type="submit">Get the menu!</button>
       </form>
       <h2>Random Menu Item!</h2>
+      <p>Restaurant: <%= restaurantName %></p>
       <p><%= randomMenuItem %></p>
-      <p>From: <%= randomCuisine %></p>
-      <!-- Add h3 to include link to menu alerts page -->
+      <p>Price: <%= randomMenuItemPrice %></p>
+      <p>Cuisine: <%= randomCuisine %></p>
+      <p>
+        Special: <%= randomMenuItemSpecial ? "Daily Special!" : "Not a Special!"
+        %>
+      </p>
       <h3><a href="/alerts">View Menu Alerts</a></h3>
     </main>
   </body>

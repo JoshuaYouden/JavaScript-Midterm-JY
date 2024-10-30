@@ -21,10 +21,15 @@ app.use(express.static("public"));
 app.get("/", (request, response) => {
   const randomCuisine = selectRandomCuisine();
   const randomMenuItem = generateRandomMenuItem(randomCuisine);
+  const randomRestaurant =
+    Restaurants[Math.floor(Math.random() * Restaurants.length)];
   response.render("index", {
     restaurants: Restaurants,
     randomMenuItem: randomMenuItem.name + " - " + randomMenuItem.description,
+    randomMenuItemPrice: "$" + randomMenuItem.price,
+    randomMenuItemSpecial: randomMenuItem.special,
     randomCuisine: randomCuisine,
+    restaurantName: randomRestaurant.name,
   });
 });
 
