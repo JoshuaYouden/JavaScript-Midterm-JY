@@ -44,7 +44,9 @@ app.get("/restaurant", (request, response) => {
 });
 
 //Add any other required routes here
-app.get("/alerts", (request, response) => {});
+app.get("/alerts", (request, response) => {
+  console.log("Alerts Page Opened!");
+});
 
 const port = 3000;
 app.listen(port, () => {
