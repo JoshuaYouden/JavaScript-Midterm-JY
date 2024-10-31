@@ -7,6 +7,17 @@
   <body>
     <main class="main-content">
       <h1>Menus Alerts</h1>
+      <p>
+        <% menu.items.forEach((item) => { %> <% if (item.special) { %>
+        <em
+          ><%= item.name %> (<%= item.description %>) - $<%= item.price %> <%=
+          restaurantName.name %></em
+        >
+        <% } %> <% } else { %>
+         <p>There is no special menu for this restaurant</p>
+      </p>
+      <% }) %>
+      <a href="/">Back to Home</a>
     </main>
   </body>
 </html>
