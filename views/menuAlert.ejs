@@ -1,22 +1,26 @@
 <html lang="en">
   <head>
-    <title>Restaurants</title>
+    <title>Menus Alerts</title>
     <link rel="stylesheet" type="text/css" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
   </head>
   <body>
     <main class="main-content">
-      <h1>Menus Alerts</h1>
-      <p>
-        <% menu.items.forEach((item) => { %> <% if (item.special) { %>
-        <em
-          ><%= item.name %> (<%= item.description %>) - $<%= item.price %> <%=
-          restaurantName.name %></em
-        >
-        <% } %> <% } else { %>
-         <p>There is no special menu for this restaurant</p>
-      </p>
-      <% }) %>
+      <h1>Menu Alerts</h1>
+      <% alerts.forEach((alert) => { %>
+      <h2><%= alert.restaurantName %></h2>
+      <% if (alert.specialItems.length > 0) { %>
+      <ul>
+        <% alert.specialItems.forEach((item) => { %>
+        <li>
+          <em><%= item.name %></em> (<%= item.description %>) - $<%=
+          item.price.toFixed(2) %>
+        </li>
+        <% }) %>
+      </ul>
+      <% } else { %>
+      <p>There is no special menu for this restaurant.</p>
+      <% } %> <% }) %>
       <a href="/">Back to Home</a>
     </main>
   </body>

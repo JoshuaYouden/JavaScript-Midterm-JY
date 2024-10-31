@@ -52,7 +52,18 @@ app.get("/restaurant", (request, response) => {
 
 //Add any other required routes here
 app.get("/alerts", (request, response) => {
-  console.log("Alerts Page Opened!");
+  const alerts = Restaurants.map((restaurant) => {
+    const menu = generateMenu(restaurant.cuisine, 5, 10);
+    const specialItems = menu.items.filter((item) => item.special);
+    return {
+      restaurantName: restaurant.name,
+      specialItems: specialItems,
+    };
+  });
+
+  response.render("menuAlert", {
+    alerts: alerts,
+  });
 });
 
 const port = 3000;
