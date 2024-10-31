@@ -17,7 +17,8 @@ describe("Restaurant Functions", () => {
 
   describe("generateMenu", () => {
     test("Test should return between 5 and 10 menu items", () => {
-      const menu = generateMenu();
+      const cuisine = Object.keys(Dishes)[0];
+      const menu = generateMenu(cuisine);
       expect(menu.items.length).toBeGreaterThanOrEqual(5);
       expect(menu.items.length).toBeLessThanOrEqual(10);
     });
